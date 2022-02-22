@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+    Scripts in head should be moved to WebFlow minus the fonts
+    All content within #roi-calc to be moved to injectHTML method and script loaded with webflow along with css
+-->
+
+<head>
+    <link rel="stylesheet" href="./roiCalculator.css">
+    <script src="./roiCalculator.js" type="application/javascript" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="roi-calc">
+        <form>
+            <h1>Return On Investment Calculator</h1>
+            <div class="roi-calc-input-wrapper">
+                <label for="num-of-homes">Number of homes</label>
+                <input name="num-of-homes" type="number" value="10" step="1" min="1" required>
+            </div>
+            <div class="roi-calc-input-wrapper">
+                <label for="avg-bed-per-home">Average Beds Per Home</label>
+                <input name="avg-bed-per-home" type="number" value="90" step="1" min="1" required>
+            </div>
+            <div class="roi-calc-input-wrapper roi-percentage">
+                <label for="occupancy-rate">Occupancy Rate</label>
+                <input name="occupancy-rate" type="number" value="85" min="0.01" max="100" step="0.01" required>
+            </div>
+            <div class="roi-calc-input-wrapper roi-percentage">
+                <label for="collection-rate" class="info">Collections Rate</label>
+                <div class="tooltip">The percentage of submitted claims you are able to collect...</div>
+                <input name="collection-rate" type="number" value="90" min="0.01" max="98" step="0.01" required>
+            </div>
+            <div class="roi-calc-input-wrapper">
+                <label for="user-email">Email</label>
+                <input name="user-email" type="email" required>
+            </div>
+            <input type="submit" value="Get your results!" class="primary-button-dark w-button">
+        </form>
+        <div class="roi-calc-modal-wrapper">
+            <div class="roi-calc-modal">
+                <div class="roi-calc-modal-blurb">
+                    <h1>Caclulate Your Potential ROI Outsourcing RCM</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <div class="roi-calc-modal-results">
+                    <div class="roi-comparison-results">
+                        <div class="roi-comparison-group">
+                            <h3>Insourced</h3>
+                            <ul class="insourced">
+                                <li>Submitted Claims: <span></span></li>
+                                <li>Billing Costs: <span></span></li>
+                                <li>Gross Collections: <span></span></li>
+                                <li>Net Collections: <span></span></li>
+                            </ul>
+                        </div>
+                        <div class="roi-comparison-group roi-emphasis">
+                            <h3>With Assembly</h3>
+                            <ul class="outsourced">
+                                <li>Submitted Claims: <span></span></li>
+                                <li>Billing Costs: <span></span></li>
+                                <li>Gross Collections: <span></span></li>
+                                <li>Net Collections: <span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2>Total Delta</h2>
+                    <ul class="delta">
+                        <li>Billing Costs: <span></span></li>
+                        <li>Gross Collections: <span></span></li>
+                        <li>Net Collections: <span></span></li>
+                    </ul>
+                    <h2 class="roi">Total ROI <span></span></h2>
+                </div>
+                <button class="close-modal" title="Restart">&#10006</button>
+            </div>
+        </div>
+    </div>
+</body>
