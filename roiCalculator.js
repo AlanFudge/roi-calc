@@ -57,15 +57,15 @@ class roiCalculator {
         const [insourcedResults, outsourcedResults, deltaResults, roi] = this.calculateResults();
 
         this.modalInsourcedValues.forEach((element, i) => {
-            element.innerText = `$${Math.ceil(insourcedResults[i]).toLocaleString()}`;
+            element.innerText = `$${(Math.ceil(insourcedResults[i]) / 1000).toLocaleString()}K`;
         });
         this.modalOutsourcedValues.forEach((element, i) => {
-            element.innerText = `$${Math.ceil(outsourcedResults[i]).toLocaleString()}`;
+            element.innerText = `$${(Math.ceil(outsourcedResults[i]) / 1000).toLocaleString()}K`;
         });
         this.modalDeltaValues.forEach((element, i) => {
-            element.innerText = `$${Math.ceil(deltaResults[i]).toLocaleString()}`;
+            element.innerText = `$${(Math.ceil(deltaResults[i]) / 1000).toLocaleString()}K`;
         });
-        this.modalTotalROIValue.innerText = `${roi} %`
+        this.modalTotalROIValue.innerText = `${roi / 100}X ROI`
 
         // open modal
         this.modal.style.display = 'flex';
@@ -89,15 +89,15 @@ class roiCalculator {
         //arrays hold [billing costs, gross collections, net collections] in that order
         const insourced = [
             submittedClaims,
-            submittedClaims * this.options.insourcedBillRate,
             submittedClaims * this.insourcedCollectionsRate,
+            submittedClaims * this.options.insourcedBillRate,
             (submittedClaims * this.insourcedCollectionsRate) - (submittedClaims * this.options.insourcedBillRate)
         ].map(roundToThousands);
 
         const assembly = [
             submittedClaims,
-            submittedClaims * this.options.billingRate,
             submittedClaims * this.options.collectionRate,
+            submittedClaims * this.options.billingRate,
             (submittedClaims * this.options.collectionRate) - (submittedClaims * this.options.billingRate)
         ].map(roundToThousands);
 
@@ -107,7 +107,7 @@ class roiCalculator {
             assembly[3] - insourced[3],
         ];
 
-        const roi = Math.round((delta[1] / delta[0]) * 100);
+        const roi = Math.round((delta[0] / delta[1]) * 100);
 
         return [insourced, assembly, delta, roi];
     }
