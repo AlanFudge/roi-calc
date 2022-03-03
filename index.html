@@ -18,7 +18,8 @@
 <body>
     <div id="roi-calc">
         <form>
-            <h1>Return On Investment Calculator</h1>
+            <h1>Revenue Cycle Management ROI Calculator</h1>
+            <p>Calculate the financial value <span class='billing-provider'></span> can bring your community.</p>
             <div class="roi-calc-input-wrapper">
                 <label for="num-of-homes">Number of homes</label>
                 <input name="num-of-homes" type="number" value="10" step="1" min="1" required>
@@ -40,46 +41,56 @@
                 <label for="user-email">Email</label>
                 <input name="user-email" type="email" required>
             </div>
-            <input type="submit" value="Get your results!" class="primary-button-dark w-button">
+            <input type="submit" value="Get your results!" class="primary-button-dark">
         </form>
         <div class="roi-calc-modal-wrapper">
             <div class="roi-calc-modal">
                 <div class="roi-calc-modal-blurb">
-                    <h1>Caclulate Your Potential ROI Outsourcing RCM</h1>
+                    <h1>Your ROI</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.
+                        Pay for Expertise. Collect significantly more. Increase your cash flow.
                     </p>
+                    <p>
+                        Want to make this return a reality? Let us show you how <span class='billing-provider'></span> will help
+                        you maximize collections, increase cash flow, and enhance your financial performance.
+                    </p>
+                    <a target="blank" id="qhcr-contact-link" href="https://www.qhcr.com/contact"><input type="submit"
+                            value="Let's Discuss" class="primary-button-dark"></a>
+                    <a target="blank" id="assembly-contact-link" href="https://www.polaris-group.com/contact"><input
+                            type="submit" value="Let's Discuss" class="primary-button-dark"></a>
                 </div>
                 <div class="roi-calc-modal-results">
                     <div class="roi-comparison-results">
                         <div class="roi-comparison-group">
-                            <h3>Insourced</h3>
+                            <h3>Current Billing</h3>
                             <ul class="insourced">
                                 <li>Submitted Claims: <span></span></li>
-                                <li>Billing Costs: <span></span></li>
                                 <li>Gross Collections: <span></span></li>
+                                <li>- Billing Costs: <span></span></li>
+                                <hr>
                                 <li>Net Collections: <span></span></li>
                             </ul>
                         </div>
                         <div class="roi-comparison-group roi-emphasis">
-                            <h3>With Assembly</h3>
+                            <h3>With <span class='billing-provider-abr'></span></h3>
                             <ul class="outsourced">
                                 <li>Submitted Claims: <span></span></li>
-                                <li>Billing Costs: <span></span></li>
                                 <li>Gross Collections: <span></span></li>
+                                <li>- Billing Costs: <span></span></li>
+                                <hr>
                                 <li>Net Collections: <span></span></li>
                             </ul>
                         </div>
                     </div>
-                    <h2>Total Delta</h2>
-                    <ul class="delta">
-                        <li>Billing Costs: <span></span></li>
-                        <li>Gross Collections: <span></span></li>
-                        <li>Net Collections: <span></span></li>
-                    </ul>
-                    <h2 class="roi">Total ROI <span></span></h2>
+                    <div class="total-delta">
+                        <h2>Your ROI With <span class='billing-provider-abr'></span></h2>
+                        <ul class="delta">
+                            <li>Gross Collections: <span></span><em class='go-color'>+ </em></li>
+                            <li>Billing Costs: <span></span><em class='danger-color'>+ </em></li>
+                            <li>Net Collections: <span></span><em class='go-color'>+ </em></li>
+                        </ul>
+                        <h2 class="roi"><span></span></h2>
+                    </div>
                 </div>
                 <button class="close-modal" title="Restart">&#10006</button>
             </div>
