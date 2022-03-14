@@ -10,7 +10,7 @@ body {
 
     /* Colors for Polaris-Group.com */
 
-    --primary-color: #E54056;
+    /* --primary-color: #E54056;
     --secondary-color: #9D2C3B;
     --tertiary-color: #777B94;
     --light-text-color: #fff;
@@ -26,11 +26,11 @@ body {
     --go-color: lime;
     --danger-color: red;
     --billing-provider: 'Polaris Group';
-    --billing-provider-abr: 'Polaris Group';
+    --billing-provider-abr: 'Polaris Group'; */
 
     /* Colors for qhcr.com */
 
-    /* --primary-color: #0DA3C8;
+    --primary-color: #0DA3C8;
     --secondary-color: #123C5A;
     --tertiary-color: #27313D;
     --light-text-color: #fff;
@@ -46,7 +46,7 @@ body {
     --go-color: lime;
     --danger-color: red;
     --billing-provider: 'Quality Healthcare Resources';
-    --billing-provider-abr: 'QHCR'; */
+    --billing-provider-abr: 'QHCR';
 }
 
 /* Contact us link should be hidden for whatever site you are not on */
