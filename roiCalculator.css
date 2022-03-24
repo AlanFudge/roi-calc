@@ -10,7 +10,7 @@ body {
 
     /* Colors for Polaris-Group.com */
 
-    /* --primary-color: #E54056;
+    --primary-color: #E54056;
     --secondary-color: #9D2C3B;
     --tertiary-color: #777B94;
     --light-text-color: #fff;
@@ -23,10 +23,10 @@ body {
     --input-border-radius: 6px;
     --contact-us-display-assembly: initial;
     --contact-us-display-qhcr: none;
-    --go-color: lime;
+    --go-color: #70AD47;
     --danger-color: red;
     --billing-provider: 'Polaris Group';
-    --billing-provider-abr: 'Polaris Group'; */
+    --billing-provider-abr: 'Polaris Group';
 
     /* Colors for qhcr.com */
 
@@ -43,10 +43,16 @@ body {
     --input-border-radius: 0px;
     --contact-us-display-assembly: none;
     --contact-us-display-qhcr: initial;
-    --go-color: lime;
+    --go-color: #70AD47;
     --danger-color: red;
     --billing-provider: 'Quality Healthcare Resources';
     --billing-provider-abr: 'QHCR';
+}
+
+#qhcr-contact-link>input[type='submit'] {
+    color: var(--primary-color) !important;
+    background-color: transparent !important;
+    border: 1px solid var(--primary-color) !important;
 }
 
 /* Contact us link should be hidden for whatever site you are not on */
@@ -89,7 +95,7 @@ body {
     font-weight: 400;
 }
 
-#roi-calc form h1 + p:first-of-type {
+#roi-calc form h1+p:first-of-type {
     color: var(--light-text-color);
     margin-bottom: 20px;
     max-width: 40ch;
@@ -177,7 +183,7 @@ body {
 
 #roi-calc .roi-calc-input-wrapper .tooltip::after {
     content: "";
-    background-color: inherit;    
+    background-color: inherit;
     width: 10px;
     height: 10px;
     position: absolute;
@@ -260,7 +266,7 @@ body {
 
 #roi-calc .roi-calc-modal-blurb p {
     margin-top: 10px;
-    margin-bottom: 50px; 
+    margin-bottom: 50px;
 }
 
 #roi-calc .roi-calc-modal-results {
@@ -285,9 +291,7 @@ body {
 }
 
 #roi-calc .roi-emphasis, #roi-calc .roi-emphasis span::after {
-    background-color: var(--secondary-color);
     border-radius: var(--input-border-radius);
-    text-decoration: underline;
 }
 
 #roi-calc .roi-calc-modal-results ul {
@@ -301,12 +305,25 @@ body {
     white-space: nowrap;
 }
 
+#roi-calc>div>div>div.roi-calc-modal-results>div.roi-comparison-results>div>ul>li:nth-child(5) {
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+#roi-calc>div>div>div.roi-calc-modal-results>div.total-delta>h2:nth-child(1)>span {
+    float: none;
+}
+
 #roi-calc .roi-calc-modal-results .total-delta {
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
     overflow: hidden;
-    padding: 10px;
+    padding: 15px;
     margin: 10px 0;
-    border-radius: var(--input-border-radius);
+    border-radius: 6px;
+}
+
+#roi-calc .roi-calc-modal-results .total-delta>h2 {
+    margin: 5px 0;
 }
 
 #roi-calc .roi-calc-modal-results em, #roi-calc .roi-calc-modal-results ul span, #roi-calc .roi-calc-modal-results .total-delta span {
@@ -316,7 +333,21 @@ body {
 #roi-calc .roi-calc-modal-results em {
     font-weight: bold;
     font-style: normal;
-    margin: 0 5px;    
+    margin: 0 5px;
+}
+
+#roi-calc>div>div>div.roi-calc-modal-results>div.total-delta>h2.roi {
+    text-align: right;
+}
+
+#roi-calc>div>div>div.roi-calc-modal-results>div.total-delta>h2.roi>span,
+#roi-calc>div>div>div.roi-calc-modal-results>div.total-delta>h2.roi>span>em {
+    font-weight: 700;
+    float: none;
+}
+
+#roi-calc>div>div>div.roi-calc-modal-results>div.total-delta>h2.roi>span>em {
+    color: var(--go-color);
 }
 
 #roi-calc .go-color {
@@ -340,6 +371,37 @@ body {
     right: -15px;
     cursor: pointer;
     box-shadow: 10px 10px 30px 10px rgb(0, 0, 0, 0.1);
+}
+
+#roi-calc .delta-graph {
+    padding: 10px;
+}
+
+#roi-calc .delta-graph div {
+    height: 30px;
+    margin: 15px 0;
+    border-radius: 3px;
+    line-height: 30px;
+}
+
+#roi-calc .delta-graph .insourced-bar {
+    width: 50%;
+    background-color: lightgray;
+}
+
+#roi-calc .delta-graph .delta-bar {
+    width: 70%;
+    background-color: var(--primary-color);
+    position: relative;
+}
+
+#roi-calc .delta-graph .delta-bar .delta-net-profit {
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    left: calc(100% + 5px);
 }
 
 @media only screen and (max-width: 700px) {
