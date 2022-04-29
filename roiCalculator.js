@@ -1,9 +1,5 @@
 "use strict";
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -142,58 +138,34 @@ var roiCalculator = /*#__PURE__*/function () {
     }
   }, {
     key: "sendEmailToHubspot",
-    value: function () {
-      var _sendEmailToHubspot = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var requestBody, response;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                requestBody = {
-                  submittedAt: Date.now(),
-                  legalConsentOptions: {
-                    consent: {
-                      consentToProcess: true,
-                      text: "I agree to allow QHCR to store and process my personal data.",
-                      communications: [{
-                        value: true,
-                        subscriptionTypeId: 999,
-                        text: "I agree to receive marketing communications from QHCR."
-                      }]
-                    }
-                  },
-                  fields: [{
-                    objectTypeId: "0-1",
-                    name: "email",
-                    value: this.emailInput.value
-                  }]
-                };
-                _context.next = 3;
-                return fetch('https://api.hsforms.com/submissions/v3/integration/submit/20893444/6c83b0bd-f3cf-408d-b101-24bb5893f734', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(requestBody)
-                });
-
-              case 3:
-                response = _context.sent;
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
+    value: function sendEmailToHubspot() {
+      var requestBody = {
+        submittedAt: Date.now(),
+        legalConsentOptions: {
+          consent: {
+            consentToProcess: true,
+            text: "I agree to allow QHCR to store and process my personal data.",
+            communications: [{
+              value: true,
+              subscriptionTypeId: 999,
+              text: "I agree to receive marketing communications from QHCR."
+            }]
           }
-        }, _callee, this);
-      }));
-
-      function sendEmailToHubspot() {
-        return _sendEmailToHubspot.apply(this, arguments);
-      }
-
-      return sendEmailToHubspot;
-    }()
+        },
+        fields: [{
+          objectTypeId: "0-1",
+          name: "email",
+          value: this.emailInput.value
+        }]
+      };
+      fetch('https://api.hsforms.com/submissions/v3/integration/submit/20893444/6c83b0bd-f3cf-408d-b101-24bb5893f734', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
+    }
   }]);
 
   return roiCalculator;
