@@ -81,6 +81,14 @@ body {
     width: min-content;
 }
 
+#roi-calc .qhcr-label {
+    display: var(--contact-us-display-qhcr);
+}
+
+#roi-calc .assembly-label {
+    display: var(--contact-us-display-assembly);
+}
+
 #roi-calc {
     padding: 30px 50px;
     background-color: var(--primary-color);
@@ -307,7 +315,6 @@ body {
 
 #roi-calc>div>div>div.roi-calc-modal-results>div.roi-comparison-results>div>ul>li:nth-child(5) {
     font-weight: 800;
-    text-decoration: underline;
 }
 
 #roi-calc>div>div>div.roi-calc-modal-results>div.total-delta>h2:nth-child(1)>span {
@@ -385,8 +392,9 @@ body {
 }
 
 #roi-calc .delta-graph .insourced-bar {
-    width: 50%;
+    width: 30%;
     background-color: lightgray;
+    position: relative;
 }
 
 #roi-calc .delta-graph .delta-bar {
@@ -395,10 +403,10 @@ body {
     position: relative;
 }
 
-#roi-calc .delta-graph .delta-bar .delta-net-profit {
+#roi-calc .delta-graph .delta-net-profit {
     margin: 0;
     padding: 0;
-    width: fit-content;
+    width: max-content;
     height: fit-content;
     position: absolute;
     left: calc(100% + 5px);
