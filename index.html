@@ -21,7 +21,7 @@
             <h1>Revenue Cycle Management ROI Calculator</h1>
             <p>Calculate the financial value <span class='billing-provider'></span> can bring your community.</p>
             <div class="roi-calc-input-wrapper">
-                <label for="num-of-homes">Number of homes</label>
+                <label for="num-of-homes">Number of Homes</label>
                 <input name="num-of-homes" type="number" value="10" step="1" min="1" required>
             </div>
             <div class="roi-calc-input-wrapper">
@@ -29,7 +29,8 @@
                 <input name="avg-bed-per-home" type="number" value="90" step="1" min="1" required>
             </div>
             <div class="roi-calc-input-wrapper roi-percentage">
-                <label for="occupancy-rate">Occupancy Rate</label>
+                <label for="occupancy-rate" class="info">Occupancy Rate</label>
+                <div class="tooltip">Occupancy Rate x Number of Homes = Census</div>
                 <input name="occupancy-rate" type="number" value="85" min="0.01" max="100" step="0.01" required>
             </div>
             <div class="roi-calc-input-wrapper roi-percentage">
@@ -89,7 +90,10 @@
                         <h2>Your ROI With <span class='billing-provider-abr'></span></h2>
 
                         <div class="delta-graph">
+                            <h3>With Current Billing</h3>
                             <div class="insourced-bar"></div>
+                            <h3 class="qhcr-label">With QHCR</h3>
+                            <h3 class="assembly-label">With Polaris Group</h3>
                             <div class="delta-bar"><h3 class="delta-net-profit"><span></span><em class='go-color'>+</em></h3></div>
                         </div>
                         <!-- <ul class="delta">
