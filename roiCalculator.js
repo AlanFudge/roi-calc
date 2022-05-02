@@ -62,10 +62,24 @@ var roiCalculator = /*#__PURE__*/function () {
       "<form>\n                <h1>Hello World</h1>\n            </form>";
     }
   }, {
+    key: "abbreviateDollarValue",
+    value: function abbreviateDollarValue(num) {
+      if (num >= 1000000) {
+        return "".concat((num / 1000000).toLocaleString(), "M");
+      }
+
+      if (num >= 1000) {
+        return "".concat((num / 1000).toLocaleString(), "K");
+      }
+
+      return "".concat(num.toLocaleString());
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault(); // Grab email in cms?
+      var _this = this;
 
+      e.preventDefault();
       this.sendEmailToHubspot(); // inputs from user [number of homes, billing rate, collections rate, email] excludes submit input;
 
       var _Object$values$slice$ = Object.values(e.target).slice(0, -1).map(function (node) {
@@ -89,16 +103,16 @@ var roiCalculator = /*#__PURE__*/function () {
           roi = _this$calculateResult2[3];
 
       this.modalInsourcedValues.forEach(function (element, i) {
-        element.innerText = "$".concat((Math.ceil(insourcedResults[i]) / 1000).toLocaleString(), "K");
+        element.innerText = _this.abbreviateDollarValue(insourcedResults[i]);
       });
       this.modalOutsourcedValues.forEach(function (element, i) {
-        element.innerText = "$".concat((Math.ceil(outsourcedResults[i]) / 1000).toLocaleString(), "K");
+        element.innerText = _this.abbreviateDollarValue(outsourcedResults[i]);
       }); // this.modalDeltaValues.forEach((element, i) => {
       //     element.innerText = `$${(Math.ceil(deltaResults[i]) / 1000).toLocaleString()}K`;
       // });
       // swapped below out for above for requested bar graph
 
-      this.modalDeltaNetCollectionsValue.innerText = "$".concat((Math.ceil(deltaResults[2]) / 1000).toLocaleString(), "K");
+      this.modalDeltaNetCollectionsValue.innerText = this.abbreviateDollarValue(deltaResults[2]);
       var percentageIncrease = Math.round((outsourcedResults[3] - insourcedResults[3]) / insourcedResults[3] * 100);
       this.modalDeltaBar.style.width = '30%';
       this.modalDeltaBar.style.width = "".concat(30 + percentageIncrease, "%");
@@ -119,19 +133,28 @@ var roiCalculator = /*#__PURE__*/function () {
     value: function closeModal(e) {
       e.preventDefault();
       return this.modal.style.display = 'none';
+      roundToNearestMagnitude;
     }
   }, {
     key: "calculateResults",
     value: function calculateResults() {
       var submittedClaims = this.numOfHomes * this.bedsPerHome * this.occupancyRate * this.options.revPerBedPerDay;
 
-      var roundToThousands = function roundToThousands(num) {
-        return Math.round(num / 1000) * 1000;
+      var roundToNearestMagnitude = function roundToNearestMagnitude(num) {
+        if (num >= 1000000) {
+          return Math.round(num / 1000000) * 1000000;
+        }
+
+        if (num >= 1000) {
+          return Math.round(num / 1000) * 1000;
+        }
+
+        return num;
       }; //arrays hold [billing costs, gross collections, net collections] in that order
 
 
-      var insourced = [submittedClaims, submittedClaims * this.insourcedCollectionsRate, submittedClaims * this.options.insourcedBillRate, submittedClaims * this.insourcedCollectionsRate - submittedClaims * this.options.insourcedBillRate].map(roundToThousands);
-      var assembly = [submittedClaims, submittedClaims * this.options.collectionRate, submittedClaims * this.options.billingRate, submittedClaims * this.options.collectionRate - submittedClaims * this.options.billingRate].map(roundToThousands);
+      var insourced = [submittedClaims, submittedClaims * this.insourcedCollectionsRate, submittedClaims * this.options.insourcedBillRate, submittedClaims * this.insourcedCollectionsRate - submittedClaims * this.options.insourcedBillRate].map(roundToNearestMagnitude);
+      var assembly = [submittedClaims, submittedClaims * this.options.collectionRate, submittedClaims * this.options.billingRate, submittedClaims * this.options.collectionRate - submittedClaims * this.options.billingRate].map(roundToNearestMagnitude);
       var delta = [assembly[1] - insourced[1], assembly[2] - insourced[2], assembly[3] - insourced[3]];
       var roi = Math.round(delta[0] / delta[1] * 100);
       return [insourced, assembly, delta, roi];
