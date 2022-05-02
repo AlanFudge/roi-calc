@@ -65,11 +65,11 @@ var roiCalculator = /*#__PURE__*/function () {
     key: "abbreviateDollarValue",
     value: function abbreviateDollarValue(num) {
       if (num >= 1000000) {
-        return "".concat((num / 1000000).toLocaleString(), "M");
+        return "$".concat((num / 1000000).toLocaleString(), "M");
       }
 
       if (num >= 1000) {
-        return "".concat((num / 1000).toLocaleString(), "K");
+        return "$".concat((num / 1000).toLocaleString(), "K");
       }
 
       return "".concat(num.toLocaleString());
