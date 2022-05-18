@@ -1,98 +1,36 @@
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    font-size: 16px;
-    padding: 0;
-    margin: 0;
-
-    /* Colors for Polaris-Group.com */
-
-    --primary-color: #E54056;
-    --secondary-color: #9D2C3B;
-    --tertiary-color: #777B94;
-    --light-text-color: #fff;
-    --dark-text-color: #333;
-    --input-focus-color: #8874fc;
-    --input-fucus-color-button: #000;
-    --serif-font: 'PT Serif';
-    --sans-serif-font: Arial;
-    --submit-border-radius: 100vw;
-    --input-border-radius: 6px;
-    --contact-us-display-assembly: initial;
-    --contact-us-display-qhcr: none;
-    --go-color: #70AD47;
-    --danger-color: red;
-    --billing-provider: 'Polaris Group';
-    --billing-provider-abr: 'Polaris Group';
-
-    /* Colors for qhcr.com */
-
-    --primary-color: #0DA3C8;
-    --secondary-color: #123C5A;
-    --tertiary-color: #27313D;
-    --light-text-color: #fff;
-    --dark-text-color: #123C5A;
-    --input-focus-color: #000;
-    --input-fucus-color-button: #fff;
-    --serif-font: 'Open Sans';
-    --sans-serif-font: 'Open Sans';
-    --submit-border-radius: 0;
-    --input-border-radius: 0px;
-    --contact-us-display-assembly: none;
-    --contact-us-display-qhcr: initial;
-    --go-color: #70AD47;
-    --danger-color: red;
-    --billing-provider: 'Quality Healthcare Resources';
-    --billing-provider-abr: 'QHCR';
+#roi-calc h1 {
+    font-size: 32px;
 }
 
-#qhcr-contact-link>input[type='submit'] {
+#roi-calc h2 {
+    font-size: 24px;
+}
+
+#roi-calc h3 {
+    font-size: 18.72px;
+}
+
+#roi-calc h1, #roi-calc h2, #roi-calc h3 {
+    font-weight: 700;
+}
+
+#roi-calc #contact-link>input[type='submit'] {
     color: var(--primary-color) !important;
     background-color: transparent !important;
     border: 1px solid var(--primary-color) !important;
 }
 
-/* Contact us link should be hidden for whatever site you are not on */
-
-#roi-calc span.billing-provider, #roi-calc span.billing-provider-abr {
-    visibility: hidden;
-}
-
-#roi-calc span.billing-provider::after, #roi-calc span.billing-provider-abr::after {
-    display: inline-block;
-    visibility: visible;
-    content: var(--billing-provider);
-}
-
-#roi-calc span.billing-provider-abr::after {
-    content: var(--billing-provider-abr);
-}
-
-#roi-calc #qhcr-contact-link {
-    display: var(--contact-us-display-qhcr);
+#roi-calc #contact-link {
     width: min-content;
-}
-
-#roi-calc #assembly-contact-link {
-    display: var(--contact-us-display-assembly);
-    width: min-content;
-}
-
-#roi-calc .qhcr-label {
-    display: var(--contact-us-display-qhcr);
-}
-
-#roi-calc .assembly-label {
-    display: var(--contact-us-display-assembly);
+    text-decoration: none;
 }
 
 #roi-calc {
     padding: 30px 50px;
     background-color: var(--primary-color);
+    font-size: 16px;
     font-family: var(--sans-serif-font);
+    width: 460px;
 }
 
 #roi-calc form h1 {
@@ -229,7 +167,17 @@ body {
 }
 
 #roi-calc input[type="submit"]:focus {
-    outline: 1px solid var(--input-fucus-color-button);
+    outline: 1px solid var(--input-focus-color-button);
+}
+
+#roi-calc input[type="submit"]:hover {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: var(--submit-border-radius);
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #roi-calc .roi-calc-modal-wrapper {
@@ -242,7 +190,6 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
-    overflow-y: scroll;
 }
 
 #roi-calc .roi-calc-modal {
@@ -257,7 +204,7 @@ body {
 
 #roi-calc .roi-calc-modal-blurb {
     padding: 20px 40px;
-    max-width: 600px;
+    max-width: 300px;
     color: var(--dark-text-color);
     background-color: #fff;
     display: flex;
@@ -280,11 +227,11 @@ body {
 #roi-calc .roi-calc-modal-results {
     background-color: var(--primary-color);
     color: var(--light-text-color);
-    max-width: 600px;
-    min-width: 250px;
-    padding: 20px 40px;
+    max-width: 560px;
+    min-width: 560px;
+    padding: 10px;
     box-sizing: border-box;
-    flex: 1;
+    flex: 2;
 }
 
 #roi-calc .roi-comparison-results {
@@ -295,7 +242,12 @@ body {
 
 #roi-calc .roi-comparison-results .roi-comparison-group {
     width: 220px;
-    padding: 10px;
+    padding: 0 10px;
+}
+
+#roi-calc .roi-comparison-results .roi-comparison-group h3 {
+    margin: 5px 0 0 0;
+    color: var(--light-text-color);
 }
 
 #roi-calc .roi-emphasis, #roi-calc .roi-emphasis span::after {
@@ -306,6 +258,7 @@ body {
     list-style: none;
     width: 100%;
     padding-left: 5px;
+    margin: 10px 0
 }
 
 #roi-calc .roi-calc-modal-results li {
@@ -325,7 +278,7 @@ body {
     background-color: var(--secondary-color);
     overflow: hidden;
     padding: 15px;
-    margin: 10px 0;
+    margin: 0;
     border-radius: 6px;
 }
 
@@ -367,7 +320,8 @@ body {
 
 #roi-calc .close-modal {
     position: absolute;
-    background-color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
     border-radius: 100%;
     border: none;
     padding: 0;
@@ -377,11 +331,15 @@ body {
     top: -15px;
     right: -15px;
     cursor: pointer;
-    box-shadow: 10px 10px 30px 10px rgb(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 30px 5px rgb(0, 0, 0, 0.1);
 }
 
 #roi-calc .delta-graph {
-    padding: 10px;
+    padding: 0 0px;
+}
+
+#roi-calc .delta-graph h3 {
+    color: var(--light-text-color);
 }
 
 #roi-calc .delta-graph div {
@@ -412,13 +370,25 @@ body {
     left: calc(100% + 5px);
 }
 
-@media only screen and (max-width: 700px) {
-    #roi-calc .roi-calc-modal-results ul {
-        padding-left: 5px;
+@media only screen and (max-width: 870px) {
+    #roi-calc .roi-calc-modal {
+        flex-direction: column;
     }
 
+    #roi-calc .roi-calc-modal-blurb {
+        max-width: 560px;
+        min-width: 250px;
+    }
+
+    #roi-calc .close-modal {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
     #roi-calc .roi-calc-modal-results {
-        padding: 20px;
+        min-width: 250px;
     }
 
     #roi-calc .roi-calc-modal-results li {
@@ -426,22 +396,31 @@ body {
     }
 }
 
+@media only screen and (max-width: 580px) {
+    #roi-calc .roi-comparison-results .roi-comparison-group {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    #roi-calc {
+        width: auto;
+    }
+}
+
 @media only screen and (max-width: 440px) {
     #roi-calc {
-        width: 100%;
+        /* width: 100%; */
         padding: 10px 10px 25px 10px;
+        flex-grow: 1;
     }
 
     #roi-calc .roi-calc-modal {
         position: absolute;
         top: 0;
+        bottom: 0;
         left: 0;
+        right: 0;
         margin: 0px;
         min-width: 100vw;
-    }
-
-    #roi-calc .close-modal {
-        top: 10px;
-        right: 10px;
     }
 }
