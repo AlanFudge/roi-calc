@@ -1,0 +1,19 @@
+#roi-calc {
+    --primary-color: #0da1c7;
+    --secondary-color: #0d324d;
+    --tertiary-color: #27313D;
+    --light-text-color: #fff;
+    --dark-text-color: #123C5A;
+    --input-focus-color: #000;
+    --input-focus-color-button: #fff;
+    --serif-font: 'Open Sans';
+    --sans-serif-font: 'Open Sans';
+    --submit-border-radius: 0;
+    --input-border-radius: 0px;
+    --go-color: #70AD47;
+    --danger-color: red;
+}
+
+#roi-calc * {
+    font-family: var(--serif-font);
+}
